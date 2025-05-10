@@ -1,0 +1,227 @@
+.context {
+  width: 100%;
+  padding: 50px 12px 150px 12px;
+  overflow: auto;
+}
+
+.container {
+  height: 100%;
+}
+
+.row-test {
+  height: 100%;
+}
+
+.header {
+
+}
+
+.inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.element-wrapper {
+  width: 450px;
+}
+
+.full-width {
+  width: 100%;
+}
+.disabled{
+  background-color: var(--gray-color)!important;
+}
+.show-pwd-forgot-pwd {
+  width: 100%;
+  margin-top: -25px;
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-button {
+  width: 100%;
+  height: 45px;
+  background-color: var(--red-color);
+  color: var(--light-color);
+  border: none;
+  border-radius: 3px;
+}
+
+input {
+  font-family: "Play", sans-serif;
+}
+
+.or {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.social-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.social-wrap-context {
+  width: 50px;
+  height: 50px;
+  min-height: 50px;
+  min-width: 50px;
+  background-color: var(--light-gray-color);
+  border-radius: 100%;
+  margin-right: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 40%;
+    height: 40%;
+  }
+
+}
+
+.social-wrap-context:hover {
+  cursor: pointer;
+  background-color: var(--gray-color);
+}
+
+.social-wrap-context:last-child {
+  margin-right: 0;
+}
+
+.terms {
+  margin: 20px 0;
+}
+
+.sign-up {
+  text-align: center;
+  margin: 20px 0;
+  span{
+    text-decoration: underline;
+    color: var(--blue-color);
+  }
+}
+
+.right-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 80%;
+  }
+}
+
+.count {
+  font-weight: 500;
+  margin: 0;text-align: center;
+
+  span{
+    color: var(--red-color);
+  }
+}
+
+.title {
+  font-family: "Play", sans-serif;
+  text-align: center;
+}
+
+.wr {
+  margin-bottom: 10px;
+}
+
+.name-bar {
+  display: flex;
+}
+
+.space {
+  width: 15px;
+}
+
+.guide {
+  font-family: "Play", sans-serif;
+  margin-bottom: 50px;
+}
+
+.verification-code{
+
+  display: flex;
+  justify-content: center;
+  gap: 50px; /* Adjusts the space between input fields */
+
+  input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 40%;
+  }
+}
+
+/* Hide the increment and decrement arrows in Webkit browsers */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide the increment and decrement arrows in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+@media screen and (max-width: 1078px) {
+  .element-wrapper {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:992px){
+  .verification-code{
+
+    gap: 10px;
+
+    input{
+      margin-left: 40%;
+    }
+  }
+}
+
+@media screen and (max-width:768px){
+  .verification-code{
+
+    gap: 50px;
+
+    input{
+      margin-left: 40%;
+    }
+  }
+}
+
+@media screen and (max-width:475px){
+  .verification-code{
+
+    gap: 10px;
+
+    input{
+      margin-left: 40%;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .name-bar {
+    display: block;
+  }
+  .space {
+    display: none;
+  }
+}

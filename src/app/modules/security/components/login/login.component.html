@@ -1,0 +1,28 @@
+<div class="login-container">
+  <h1>Sign In</h1>
+
+  <form [formGroup]="form" (ngSubmit)="login()">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" placeholder="Ex. john@example.com" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="showState ? 'text' : 'password'" formControlName="password">
+    </mat-form-field>
+
+    <mat-checkbox [(ngModel)]="showState" [ngModelOptions]="{standalone:true}">
+      Show Password
+    </mat-checkbox>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid || loading">
+      <app-loading-spinner *ngIf="loading" [size]="15"></app-loading-spinner>
+      <span *ngIf="!loading">Log in</span>
+    </button>
+
+    <div class="signup-link">
+      Don’t have an account? <a routerLink="/security/context/signup">Sign up</a>
+    </div>
+  </form>
+</div>

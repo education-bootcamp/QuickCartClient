@@ -1,1 +1,40 @@
-<p>signup works!</p>
+<div class="container">
+  <h1 class="header">Sign Up</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email" placeholder="Ex. john@example.com">
+      <mat-error *ngIf="form.get('email')?.invalid">Enter a valid email</mat-error>
+    </mat-form-field>
+
+    <div class="name-bar">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" type="text">
+      </mat-form-field>
+      <div class="space"></div>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" type="text">
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password">
+    </mat-form-field>
+
+    <mat-checkbox [(ngModel)]="showPassword" [ngModelOptions]="{ standalone: true }">
+      Show Password
+    </mat-checkbox>
+
+    <p class="guide">
+      Your password must be at least 6 characters and contain{{' @, & or $.'}}
+    </p>
+
+    <button mat-raised-button color="primary" class="login-button" [disabled]="form.invalid || loading">
+      <span *ngIf="!loading">Sign Up</span>
+      <mat-progress-spinner *ngIf="loading" diameter="20" mode="indeterminate"></mat-progress-spinner>
+    </button>
+  </form>
+</div>

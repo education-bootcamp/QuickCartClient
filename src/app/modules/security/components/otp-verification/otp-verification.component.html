@@ -1,1 +1,72 @@
-<p>otp-verification works!</p>
+<div class="context">
+  <div class="container">
+    <div class="row row-test">
+      <div class="col-12 col-md-6 wrap">
+        <div class="inner">
+          <div class="element-wrapper">
+
+            <h1 class="header">
+              Enter Your verification code.
+            </h1>
+
+            <p class="guide">
+              We have sent a Verification code to <b>{{selectedEmail}} <a
+              routerLink="/security/process/signup">change</a></b>
+            </p>
+
+            <!-- Updated form with four input fields for the verification code -->
+            <form [formGroup]="form" (ngSubmit)="verifyCode()">
+
+
+
+              <div class="verification-code col-12 d-flex justify-content-center">
+                <mat-form-field class="verification-input mr-2" appearance="outline">
+                  <input matInput type="text" formControlName="code1" maxlength="1" placeholder="0" pattern="[0-9]*"
+                         inputmode="numeric" (input)="moveToNext($event, 'code2')" (keydown)="validateNumericInput($event)"
+                         (paste)="handlePaste($event)" />
+                </mat-form-field>
+
+                <mat-form-field class="verification-input" appearance="outline">
+                  <input matInput type="text" formControlName="code2" maxlength="1" placeholder="0" pattern="[0-9]*" inputmode="numeric"
+                         (input)="moveToNext($event, 'code3')" (keydown)="validateNumericInput($event)" (paste)="handlePaste($event)" />
+                </mat-form-field>
+
+                <mat-form-field class="verification-input" appearance="outline">
+                  <input matInput type="text" formControlName="code3" maxlength="1" placeholder="0" pattern="[0-9]*" inputmode="numeric"
+                         (input)="moveToNext($event, 'code4')" (keydown)="validateNumericInput($event)" (paste)="handlePaste($event)" />
+                </mat-form-field>
+
+                <mat-form-field class="verification-input" appearance="outline">
+                  <input matInput type="text" formControlName="code4" maxlength="1" placeholder="0" pattern="[0-9]*" inputmode="numeric"
+                         (keydown)="validateNumericInput($event)" (paste)="handlePaste($event)" />
+                </mat-form-field>
+              </div>
+
+
+              <button [disabled]="form.invalid || loading" type="submit"
+                      class="login-button {{form.invalid || loading ? 'disabled' : ''}}">
+                <app-loading-spinner *ngIf="loading" [size]="15"></app-loading-spinner>
+                <span *ngIf="!loading">Verify</span>
+              </button>
+              <h3 class="sign-up" (click)="resend()" *ngIf="!showState">
+                <span style="cursor: pointer">Resend Code</span>
+              </h3>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-12 col-md-6 wrap">
+        <div class="row" style="margin: 0">
+          <div class="right-wrapper">
+            <img src="assets/security/best-place.jpg" alt="Best Place">
+            <h2 class="count">Prime Destination for Talented <span>Software Engineers</span></h2>
+            <h4 class="title">Discover endless opportunities at Developers Stack, the premier destination for talented
+              software engineers. Elevate your skills and network in the dynamic world of software development.</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
